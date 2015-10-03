@@ -1,0 +1,34 @@
+{
+  "name": "ochi51/cybozu-http-bundle",
+  "type": "library",
+  "description": "Symfony2 HTTP client bundle for cybozu.com API (kintone API and User API)",
+  "authors": [
+    {
+      "name": "Yuichi Ochiai",
+      "email": "ochiai@cstap.com"
+    }
+  ],
+  "require": {
+    "php": ">=5.5.0",
+    "ochi51/cybozu-http": "dev-master",
+    "symfony/framework-bundle": "~2.3"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "~4.8",
+    "matthiasnoback/symfony-config-test": "~1.3",
+    "matthiasnoback/symfony-dependency-injection-test": "~0.7"
+  },
+  "autoload": {
+    "psr-4": {
+      "CybozuHttpBundle\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "CybozuHttpBundle\\Tests\\": "tests/"
+    }
+  },
+  "config": {
+    "bin-dir": "bin"
+  }
+}

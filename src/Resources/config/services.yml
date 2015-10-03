@@ -1,0 +1,36 @@
+parameters:
+  cybozu_http.client.class: CybozuHttp\Client
+  cybozu_http.client.factory_class: CybozuHttpBundle\Cybozu\ClientFactory
+  cybozu_http.kintone_api_client.class: CybozuHttp\Api\KintoneApi
+  cybozu_http.user_api_client.class: CybozuHttp\Api\UserApi
+
+services:
+  cybozu_http.cybozu.config:
+    class:  %cybozu_http.client.class%
+    arguments:
+      - @security.token_storage
+      - %cybozu_http.config%
+      - %cybozu_http.cert_dir%
+      - %cybozu_http.logfile%
+
+  cybozu_http.client:
+    class:  %cybozu_http.client.class%
+    factory_class: %cybozu_http.client.factory_class%
+    factory_method: factory
+    arguments:
+      - @cybozu_http.cybozu.config
+
+  cybozu_http.client:
+    class:  %cybozu_http.client.class%
+    arguments:
+      - %cybozu_http.config%
+
+  cybozu_http.kintone_api_client:
+    class:  %cybozu_http.kintone_api_client.class%
+    arguments:
+      - %cybozu_http.client%
+
+  cybozu_http.user_api_client:
+    class:  %cybozu_http.user_api_client.class%
+    arguments:
+      - %cybozu_http.client%
