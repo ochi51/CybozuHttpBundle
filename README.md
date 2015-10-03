@@ -1,7 +1,12 @@
-CybozuHttpBundle[![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](https://github.com/ochi51/CybozuHttpBundle/tree/master/LICENSE.md)
+CybozuHttpBundle[![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](https://github.com/ochi51/CybozuHttpBundle/tree/master/LICENSE)
 =======================
 
 @todo badge
+[![Circle CI](https://circleci.com/gh/ochi51/CybozuHttpBundle.svg?style=svg)](https://circleci.com/gh/ochi51/CybozuHttpBundle)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/ochi51/CybozuHttpBundle/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/ochi51/CybozuHttpBundle/?branch=master)
+[![Code Coverage](https://scrutinizer-ci.com/g/ochi51/CybozuHttpBundle/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/ochi51/CybozuHttpBundle/?branch=master)
+[![Build Status](https://scrutinizer-ci.com/g/ochi51/CybozuHttpBundle/badges/build.png?b=master)](https://scrutinizer-ci.com/g/ochi51/CybozuHttpBundle/build-status/master)
+
 
 Symfony bundle that integrates the [Cybozu HTTP](https://github.com/ochi51/cybozu-http) by providing easy-to-use services and configuration.
 
