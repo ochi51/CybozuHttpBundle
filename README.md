@@ -76,18 +76,19 @@ There are two ways that configure cybozu.com account information.
 ```{.yml}
     # app/config.yml
     cybozu_http:
-        domain:         cybozu.com
-        subdomain:      changeMe
-        useApiToken:    false
-        login:          changeMe
-        password:       changeMe
-        token:          null
-        use_basic:       false
-        basic_login:     null
-        basic_password:  null
-        use_client_cert:  false
-        cert_file:       /path/to/cert.pem
-        cert_password:   null
+        config:
+            domain:         cybozu.com
+            subdomain:      changeMe
+            useApiToken:    false
+            login:          changeMe
+            password:       changeMe
+            token:          null
+            use_basic:       false
+            basic_login:     null
+            basic_password:  null
+            use_client_cert:  false
+            cert_file:       /path/to/cert.pem
+            cert_password:   null
         debug:          false
         logfile:        /path/to/logfile.log
 ```
