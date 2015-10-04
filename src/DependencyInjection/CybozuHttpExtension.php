@@ -33,16 +33,16 @@ class CybozuHttpExtension extends Extension
     {
         $container->setParameter('cybozu_http.config.domain', $config['domain']);
         $container->setParameter('cybozu_http.config.subdomain', $config['subdomain']);
-        $container->setParameter('cybozu_http.config.useApiToken', $config['useApiToken']);
+        $container->setParameter('cybozu_http.config.use_api_token', $config['use_api_token']);
         $container->setParameter('cybozu_http.config.login', $config['login']);
         $container->setParameter('cybozu_http.config.password', $config['password']);
         $container->setParameter('cybozu_http.config.token', $config['token']);
-        $container->setParameter('cybozu_http.config.useBasic', $config['useBasic']);
-        $container->setParameter('cybozu_http.config.basicLogin', $config['basicLogin']);
-        $container->setParameter('cybozu_http.config.basicPassword', $config['basicPassword']);
-        $container->setParameter('cybozu_http.config.useClientCert', $config['useClientCert']);
-        $container->setParameter('cybozu_http.config.certFile', $config['certFile']);
-        $container->setParameter('cybozu_http.config.certPassword', $config['certPassword']);
+        $container->setParameter('cybozu_http.config.use_basic', $config['use_basic']);
+        $container->setParameter('cybozu_http.config.basic_login', $config['basic_login']);
+        $container->setParameter('cybozu_http.config.basic_password', $config['basic_password']);
+        $container->setParameter('cybozu_http.config.use_client_cert', $config['use_client_cert']);
+        $container->setParameter('cybozu_http.config.cert_file', $config['cert_file']);
+        $container->setParameter('cybozu_http.config.cert_password', $config['cert_password']);
         $container->setParameter('cybozu_http.cert_dir', $config['cert_dir']);
         $container->setParameter('cybozu_http.debug', $config['debug']);
         $container->setParameter('cybozu_http.logfile', $config['logfile']);
