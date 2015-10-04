@@ -16,16 +16,16 @@ class CybozuHttpExtensionTest extends AbstractExtensionTestCase
     private static $config = [
         'domain'        => 'cybozu.com',
         'subdomain'     => 'test',
-        'useApiToken'   => false,
+        'use_api_token'   => false,
         'login'         => 'test@ochi51.com',
         'password'      => 'password',
         'token'         => null,
-        'useBasic'      => true,
-        'basicLogin'    => 'basic_login',
-        'basicPassword' => 'password',
-        'useClientCert' => false,
-        'certFile'      => '/path/to/cert.pem',
-        'certPassword'  => 'password'
+        'use_basic'      => true,
+        'basic_login'    => 'basic_login',
+        'basic_password' => 'password',
+        'use_client_cert' => false,
+        'cert_file'      => '/path/to/cert.pem',
+        'cert_password'  => 'password'
     ];
 
     public function testParameters()
@@ -40,16 +40,16 @@ class CybozuHttpExtensionTest extends AbstractExtensionTestCase
         $this->assertContainerBuilderHasParameter('cybozu_http.test', true);
         $this->assertContainerBuilderHasParameter('cybozu_http.config.domain');
         $this->assertContainerBuilderHasParameter('cybozu_http.config.subdomain');
-        $this->assertContainerBuilderHasParameter('cybozu_http.config.useApiToken');
+        $this->assertContainerBuilderHasParameter('cybozu_http.config.use_api_token');
         $this->assertContainerBuilderHasParameter('cybozu_http.config.login');
         $this->assertContainerBuilderHasParameter('cybozu_http.config.password');
         $this->assertContainerBuilderHasParameter('cybozu_http.config.token');
-        $this->assertContainerBuilderHasParameter('cybozu_http.config.useBasic');
-        $this->assertContainerBuilderHasParameter('cybozu_http.config.basicLogin');
-        $this->assertContainerBuilderHasParameter('cybozu_http.config.basicPassword');
-        $this->assertContainerBuilderHasParameter('cybozu_http.config.useClientCert');
-        $this->assertContainerBuilderHasParameter('cybozu_http.config.certFile');
-        $this->assertContainerBuilderHasParameter('cybozu_http.config.certPassword');
+        $this->assertContainerBuilderHasParameter('cybozu_http.config.use_basic');
+        $this->assertContainerBuilderHasParameter('cybozu_http.config.basic_login');
+        $this->assertContainerBuilderHasParameter('cybozu_http.config.basic_password');
+        $this->assertContainerBuilderHasParameter('cybozu_http.config.use_client_cert');
+        $this->assertContainerBuilderHasParameter('cybozu_http.config.cert_file');
+        $this->assertContainerBuilderHasParameter('cybozu_http.config.cert_password');
         $this->assertContainerBuilderHasParameter('cybozu_http.cert_dir');
         $this->assertContainerBuilderHasParameter('cybozu_http.debug');
         $this->assertContainerBuilderHasParameter('cybozu_http.logfile');

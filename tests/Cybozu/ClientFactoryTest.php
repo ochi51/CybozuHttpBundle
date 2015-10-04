@@ -23,16 +23,16 @@ class ClientFactoryTest extends \PHPUnit_Framework_TestCase
         $config = new Config($ts, [
             "domain" =>         "cybozu.com",
             "subdomain" =>      "changeMe",
-            "useApiToken" =>    false,
+            "use_api_token" =>    false,
             "login" =>          "changeMe",
             "password" =>       "changeMe",
             "token" =>          null,
-            "useBasic" =>       false,
-            "basicLogin" =>     null,
-            "basicPassword" =>  null,
-            "useClientCert" =>  false,
-            "certFile" =>       "cert.pem",
-            "certPassword" =>   null,
+            "use_basic" =>       false,
+            "basic_login" =>     null,
+            "basic_password" =>  null,
+            "use_client_cert" =>  false,
+            "cert_file" =>       "cert.pem",
+            "cert_password" =>   null,
             "debug" => false
         ], '/path/to/cert_dir', '/path/to/logfile.log');
 

@@ -22,7 +22,7 @@ class ConfigTest extends \PHPUnit_Framework_TestCase
 
         $config = new Config($ts, [], '/path/to/cert_dir', '/path/to/logfile.log');
         $this->assertEquals($config->toArray(), [
-            'certFile' => '/path/to/cert_dir/cert.pem',
+            'cert_file' => '/path/to/cert_dir/cert.pem',
             'debug' => true,
             'logfile' => '/path/to/logfile.log',
         ] + $testUser->getCybozuHttpConfig());
