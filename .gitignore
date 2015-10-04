@@ -1,6 +1,7 @@
 /bin/
 /vendor/
 /tests/_output
+composer.lock
 
 # PHPStorm
 .idea
