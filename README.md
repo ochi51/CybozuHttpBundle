@@ -44,7 +44,7 @@ Alternatively, you can specify Cybozu HTTP as a dependency in your project's exi
 ```{.json}
     {
        "require": {
-          "ochi51/cybozu-http-bundle": "dev-master"
+          "ochi51/cybozu-http-bundle": "0.1.*@dev"
        }
     }
 ```
