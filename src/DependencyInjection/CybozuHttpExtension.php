@@ -68,7 +68,7 @@ class CybozuHttpExtension extends Extension
      */
     private function setDomainParameter(ContainerBuilder $container, array $config)
     {
-        if (isset($config['domain'])) {
+        if (!isset($config['domain'])) {
             $config['domain'] = 'cybozu.com';
         }
         $container->setParameter('cybozu_http.config.domain', $config['domain']);
@@ -80,7 +80,7 @@ class CybozuHttpExtension extends Extension
      */
     private function setSubdomainParameter(ContainerBuilder $container, array $config)
     {
-        if (isset($config['subdomain'])) {
+        if (!isset($config['subdomain'])) {
             $config['subdomain'] = null;
         }
         $container->setParameter('cybozu_http.config.subdomain', $config['subdomain']);
@@ -101,7 +101,7 @@ class CybozuHttpExtension extends Extension
      */
     private function setLoginParameter(ContainerBuilder $container, array $config)
     {
-        if (isset($config['login'])) {
+        if (!isset($config['login'])) {
             $config['login'] = null;
         }
         $container->setParameter('cybozu_http.config.login', $config['login']);
@@ -113,7 +113,7 @@ class CybozuHttpExtension extends Extension
      */
     private function setPasswordParameter(ContainerBuilder $container, array $config)
     {
-        if (isset($config['password'])) {
+        if (!isset($config['password'])) {
             $config['password'] = null;
         }
         $container->setParameter('cybozu_http.config.password', $config['password']);
@@ -125,7 +125,7 @@ class CybozuHttpExtension extends Extension
      */
     private function setTokenParameter(ContainerBuilder $container, array $config)
     {
-        if (isset($config['token'])) {
+        if (!isset($config['token'])) {
             $config['token'] = null;
         }
         $container->setParameter('cybozu_http.config.token', $config['token']);
@@ -146,7 +146,7 @@ class CybozuHttpExtension extends Extension
      */
     private function setBasicLoginParameter(ContainerBuilder $container, array $config)
     {
-        if (isset($config['basic_login'])) {
+        if (!isset($config['basic_login'])) {
             $config['basic_login'] = null;
         }
         $container->setParameter('cybozu_http.config.basic_login', $config['basic_login']);
@@ -158,7 +158,7 @@ class CybozuHttpExtension extends Extension
      */
     private function setBasicPasswordParameter(ContainerBuilder $container, array $config)
     {
-        if (isset($config['basic_password'])) {
+        if (!isset($config['basic_password'])) {
             $config['basic_password'] = null;
         }
         $container->setParameter('cybozu_http.config.basic_password', $config['basic_password']);
@@ -179,7 +179,7 @@ class CybozuHttpExtension extends Extension
      */
     private function setCertFileParameter(ContainerBuilder $container, array $config)
     {
-        if (isset($config['cert_file'])) {
+        if (!isset($config['cert_file'])) {
             $config['cert_file'] = null;
         }
         $container->setParameter('cybozu_http.config.cert_file', $config['cert_file']);
@@ -191,7 +191,7 @@ class CybozuHttpExtension extends Extension
      */
     private function setCertPasswordParameter(ContainerBuilder $container, array $config)
     {
-        if (isset($config['cert_password'])) {
+        if (!isset($config['cert_password'])) {
             $config['cert_password'] = null;
         }
         $container->setParameter('cybozu_http.config.cert_password', $config['cert_password']);
@@ -203,7 +203,7 @@ class CybozuHttpExtension extends Extension
      */
     private function setCertDirParameter(ContainerBuilder $container, array $config)
     {
-        if (isset($config['cert_dir'])) {
+        if (!isset($config['cert_dir'])) {
             $config['cert_dir'] = null;
         }
         $container->setParameter('cybozu_http.cert_dir', $config['cert_dir']);
@@ -224,7 +224,7 @@ class CybozuHttpExtension extends Extension
      */
     private function setLogfileParameter(ContainerBuilder $container, array $config)
     {
-        if (isset($config['logfile'])) {
+        if (!isset($config['logfile'])) {
             $config['logfile'] = null;
         }
         $container->setParameter('cybozu_http.logfile', $config['logfile']);
