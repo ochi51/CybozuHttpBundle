@@ -28,9 +28,9 @@ services:
   cybozu_http.kintone_api_client:
     class:  %cybozu_http.kintone_api_client.class%
     arguments:
-      - %cybozu_http.client%
+      - @cybozu_http.client
 
   cybozu_http.user_api_client:
     class:  %cybozu_http.user_api_client.class%
     arguments:
-      - %cybozu_http.client%
+      - @cybozu_http.client
