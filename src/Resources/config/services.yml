@@ -21,11 +21,6 @@ services:
     arguments:
       - @cybozu_http.cybozu.config
 
-  cybozu_http.client:
-    class:  %cybozu_http.client.class%
-    arguments:
-      - %cybozu_http.config%
-
   cybozu_http.kintone_api_client:
     class:  %cybozu_http.kintone_api_client.class%
     arguments:
