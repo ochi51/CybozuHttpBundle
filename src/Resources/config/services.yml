@@ -3,10 +3,11 @@ parameters:
   cybozu_http.client.factory_class: CybozuHttpBundle\Cybozu\ClientFactory
   cybozu_http.kintone_api_client.class: CybozuHttp\Api\KintoneApi
   cybozu_http.user_api_client.class: CybozuHttp\Api\UserApi
+  cybozu_http.cybozu.config.class: CybozuHttpBundle\Cybozu\Config
 
 services:
   cybozu_http.cybozu.config:
-    class:  %cybozu_http.client.class%
+    class:  %cybozu_http.cybozu.config.class%
     arguments:
       - @security.token_storage
       - %cybozu_http.config%

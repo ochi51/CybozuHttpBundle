@@ -88,6 +88,7 @@ class CybozuHttpExtensionTest extends AbstractExtensionTestCase
         $this->assertContainerBuilderHasService('cybozu_http.client', 'CybozuHttp\Client');
         $this->assertContainerBuilderHasService('cybozu_http.kintone_api_client', 'CybozuHttp\Api\KintoneApi');
         $this->assertContainerBuilderHasService('cybozu_http.user_api_client', 'CybozuHttp\Api\UserApi');
+        $this->assertContainerBuilderHasService('cybozu_http.cybozu.config', 'CybozuHttpBundle\Cybozu\Config');
     }
 
     /**
