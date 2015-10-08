@@ -1,4 +1,6 @@
 parameters:
+  cybozu_http.cert_dir: %kernel.root_dir%/../uploads/cert
+  cybozu_http.logfile:  %kernel.root_dir%/logs/cybozu-http.log
   cybozu_http.client.class: CybozuHttp\Client
   cybozu_http.client.factory_class: CybozuHttpBundle\Cybozu\ClientFactory
   cybozu_http.kintone_api_client.class: CybozuHttp\Api\KintoneApi
