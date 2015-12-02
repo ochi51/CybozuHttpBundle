@@ -12,9 +12,9 @@ class Config
 {
 
     /**
-     * @var CybozuAccountInterface
+     * @var TokenStorageInterface
      */
-    private $user;
+    private $ts;
 
     /**
      * @var array
@@ -39,7 +39,7 @@ class Config
      */
     public function __construct(TokenStorageInterface $ts, array $config = [], $certDir = null, $logfile = null)
     {
-        $this->user = $ts->getToken()->getUser();
+        $this->ts = $ts;
         $this->config = $config;
         $this->certDir = $certDir;
         $this->logfile = $logfile;
@@ -51,19 +51,20 @@ class Config
      */
     public function toArray()
     {
-        if ($this->user instanceof CybozuAccountInterface) {
-            $config = $this->user->getCybozuHttpConfig();
-            $config['debug']   = $this->user->getDebugMode();
+        $user = $this->ts->getToken()->getUser();
+        $config = $this->config;
+
+        if ($user instanceof CybozuAccountInterface) {
+            $config = $user->getCybozuHttpConfig();
+            $config['debug']   = $user->getDebugMode();
             $config['logfile'] = $this->logfile;
             // This assumes to use KnpGaufretteBundle and VichUploaderBundle.
             // Entity has only key, so can't know directory.
             if (isset($config['cert_file'])) {
                 $config['cert_file'] = $this->certDir . '/' . $config['cert_file'];
             }
-
-            return $config;
         }
 
-        return $this->config;
+        return $config;
     }
 }
