@@ -25,7 +25,10 @@ class CybozuHttpExtensionTest extends AbstractExtensionTestCase
         'basic_password'    => 'password',
         'use_client_cert'   => false,
         'cert_file'         => '/path/to/cert.pem',
-        'cert_password'     => 'password'
+        'cert_password'     => 'password',
+        'use_cache'         => true,
+        'cache_dir'         => '/path/to/cache_dir',
+        'cache_ttl'         => 60
     ];
 
     public function testParameters()
@@ -51,6 +54,9 @@ class CybozuHttpExtensionTest extends AbstractExtensionTestCase
         $this->assertContainerBuilderHasParameter('cybozu_http.config.use_client_cert', false);
         $this->assertContainerBuilderHasParameter('cybozu_http.config.cert_file', '/path/to/cert.pem');
         $this->assertContainerBuilderHasParameter('cybozu_http.config.cert_password', 'password');
+        $this->assertContainerBuilderHasParameter('cybozu_http.config.use_cache', true);
+        $this->assertContainerBuilderHasParameter('cybozu_http.config.cache_dir', '/path/to/cache_dir');
+        $this->assertContainerBuilderHasParameter('cybozu_http.config.cache_ttl', 60);
         $this->assertContainerBuilderHasParameter('cybozu_http.cert_dir', '/path/to/cert_dir');
         $this->assertContainerBuilderHasParameter('cybozu_http.debug', true);
         $this->assertContainerBuilderHasParameter('cybozu_http.logfile', '/path/to/logfile.log');
@@ -86,8 +92,11 @@ class CybozuHttpExtensionTest extends AbstractExtensionTestCase
         ]);
 
         $this->assertContainerBuilderHasService('cybozu_http.client', 'CybozuHttp\Client');
+        $this->assertContainerBuilderHasService('cybozu_http.cache_client', 'CybozuHttp\CacheClient');
         $this->assertContainerBuilderHasService('cybozu_http.kintone_api_client', 'CybozuHttp\Api\KintoneApi');
         $this->assertContainerBuilderHasService('cybozu_http.user_api_client', 'CybozuHttp\Api\UserApi');
+        $this->assertContainerBuilderHasService('cybozu_http.cache_kintone_api_client', 'CybozuHttp\Api\KintoneApi');
+        $this->assertContainerBuilderHasService('cybozu_http.cache_user_api_client', 'CybozuHttp\Api\UserApi');
         $this->assertContainerBuilderHasService('cybozu_http.cybozu.config', 'CybozuHttpBundle\Cybozu\Config');
     }
 

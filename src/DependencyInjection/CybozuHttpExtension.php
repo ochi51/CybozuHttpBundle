@@ -60,6 +60,9 @@ class CybozuHttpExtension extends Extension
         $this->setUseClientCertParameter($container, $config['config']);
         $this->setCertFileParameter($container, $config['config']);
         $this->setCertPasswordParameter($container, $config['config']);
+        $this->setUseCacheParameter($container, $config['config']);
+        $this->setCacheDirParameter($container, $config['config']);
+        $this->setCacheTtlParameter($container, $config['config']);
     }
 
     /**
@@ -195,6 +198,42 @@ class CybozuHttpExtension extends Extension
             $config['cert_password'] = null;
         }
         $container->setParameter('cybozu_http.config.cert_password', $config['cert_password']);
+    }
+
+    /**
+     * @param ContainerBuilder $container
+     * @param string[]         $config
+     */
+    private function setUseCacheParameter(ContainerBuilder $container, array $config)
+    {
+        if (!isset($config['use_cache'])) {
+            $config['use_cache'] = false;
+        }
+        $container->setParameter('cybozu_http.config.use_cache', $config['use_cache']);
+    }
+
+    /**
+     * @param ContainerBuilder $container
+     * @param string[]         $config
+     */
+    private function setCacheDirParameter(ContainerBuilder $container, array $config)
+    {
+        if (!isset($config['cache_dir'])) {
+            $config['cache_dir'] = null;
+        }
+        $container->setParameter('cybozu_http.config.cache_dir', $config['cache_dir']);
+    }
+
+    /**
+     * @param ContainerBuilder $container
+     * @param string[]         $config
+     */
+    private function setCacheTtlParameter(ContainerBuilder $container, array $config)
+    {
+        if (!isset($config['cache_ttl'])) {
+            $config['cache_ttl'] = 0;
+        }
+        $container->setParameter('cybozu_http.config.cache_ttl', $config['cache_ttl']);
     }
 
     /**

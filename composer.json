@@ -10,7 +10,7 @@
   ],
   "require": {
     "php": ">=5.5.0",
-    "ochi51/cybozu-http": "0.1.*@dev",
+    "ochi51/cybozu-http": "~0.1.7",
     "symfony/framework-bundle": "~2.3"
   },
   "require-dev": {
