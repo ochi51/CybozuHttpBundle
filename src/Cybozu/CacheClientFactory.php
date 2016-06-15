@@ -2,19 +2,19 @@
 
 namespace CybozuHttpBundle\Cybozu;
 
-use CybozuHttp\Client;
+use CybozuHttp\CacheClient;
 
 /**
  * @author ochi51 <ochiai07@gmail.com>
  */
-class ClientFactory
+class CacheClientFactory
 {
     /**
      * @param Config $config
-     * @return Client
+     * @return CacheClient
      */
     public static function factory(Config $config)
     {
-        return new Client($config->toArray());
+        return new CacheClient($config->toArray());
     }
 }

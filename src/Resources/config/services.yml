@@ -3,6 +3,8 @@ parameters:
   cybozu_http.logfile:  %kernel.root_dir%/logs/cybozu-http.log
   cybozu_http.client.class: CybozuHttp\Client
   cybozu_http.client.factory_class: CybozuHttpBundle\Cybozu\ClientFactory
+  cybozu_http.cache_client.class: CybozuHttp\CacheClient
+  cybozu_http.cache_client.factory_class: CybozuHttpBundle\Cybozu\CacheClientFactory
   cybozu_http.kintone_api_client.class: CybozuHttp\Api\KintoneApi
   cybozu_http.user_api_client.class: CybozuHttp\Api\UserApi
   cybozu_http.cybozu.config.class: CybozuHttpBundle\Cybozu\Config
@@ -23,6 +25,13 @@ services:
     arguments:
       - @cybozu_http.cybozu.config
 
+  cybozu_http.cache_client:
+    class:  %cybozu_http.cache_client.class%
+    factory_class: %cybozu_http.cache_client.factory_class%
+    factory_method: factory
+    arguments:
+      - @cybozu_http.cybozu.config
+
   cybozu_http.kintone_api_client:
     class:  %cybozu_http.kintone_api_client.class%
     arguments:
@@ -32,3 +41,13 @@ services:
     class:  %cybozu_http.user_api_client.class%
     arguments:
       - @cybozu_http.client
+
+  cybozu_http.cache_kintone_api_client:
+    class:  %cybozu_http.kintone_api_client.class%
+    arguments:
+      - @cybozu_http.cache_client
+
+  cybozu_http.cache_user_api_client:
+    class:  %cybozu_http.user_api_client.class%
+    arguments:
+      - @cybozu_http.cache_client
