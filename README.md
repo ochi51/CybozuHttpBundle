@@ -79,7 +79,7 @@ There are two ways that configure cybozu.com account information.
         config:
             domain:         cybozu.com
             subdomain:      changeMe
-            useApiToken:    false
+            use_api_token:    false
             login:          changeMe
             password:       changeMe
             token:          null
@@ -115,7 +115,7 @@ There are two ways that configure cybozu.com account information.
             return [
                 "domain" =>         "cybozu.com",
                 "subdomain" =>      "changeMe",
-                "useApiToken" =>    false,
+                "use_api_token" =>    false,
                 "login" =>          "changeMe",
                 "password" =>       "changeMe",
                 "token" =>          null,
