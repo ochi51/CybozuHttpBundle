@@ -55,7 +55,7 @@ class Config
         $config = $this->config;
 
         if ($user instanceof CybozuAccountInterface) {
-            $config = $user->getCybozuHttpConfig();
+            $config = $user->getCybozuHttpConfig() + $config;
             $config['debug']   = $user->getDebugMode();
             $config['logfile'] = $this->logfile;
             // This assumes to use KnpGaufretteBundle and VichUploaderBundle.
