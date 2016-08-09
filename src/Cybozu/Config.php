@@ -60,7 +60,7 @@ class Config
             $config['logfile'] = $this->logfile;
             // This assumes to use KnpGaufretteBundle and VichUploaderBundle.
             // Entity has only key, so can't know directory.
-            if (isset($config['cert_file'])) {
+            if (array_key_exists('cert_file', $config)) {
                 $config['cert_file'] = $this->certDir . '/' . $config['cert_file'];
             }
         }
