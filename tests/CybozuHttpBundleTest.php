@@ -21,6 +21,7 @@ class CybozuHttpBundleTest extends \PHPUnit_Framework_TestCase
         $container = new ContainerBuilder();
         $bundle    = new CybozuHttpBundle();
         $bundle->build($container);
+        $container->setParameter('kernel.root_dir', __DIR__ . '/_output/');
 
         $this->assertTrue($bundle instanceof Bundle);
 
@@ -37,10 +38,7 @@ class CybozuHttpBundleTest extends \PHPUnit_Framework_TestCase
 
         $this->assertTrue($container->has('cybozu_http.cybozu.config'));
         $this->assertTrue($container->has('cybozu_http.client'));
-        $this->assertTrue($container->has('cybozu_http.cache_client'));
         $this->assertTrue($container->has('cybozu_http.kintone_api_client'));
         $this->assertTrue($container->has('cybozu_http.user_api_client'));
-        $this->assertTrue($container->has('cybozu_http.cache_kintone_api_client'));
-        $this->assertTrue($container->has('cybozu_http.cache_user_api_client'));
     }
 }
