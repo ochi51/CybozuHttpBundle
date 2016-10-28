@@ -15,19 +15,23 @@ services:
       - '%cybozu_http.cert_dir%'
       - '%cybozu_http.logfile%'
 
+  cybozu_http.factory_client:
+    class:  '%cybozu_http.client.factory_class%'
+
   cybozu_http.client:
     class:  '%cybozu_http.client.class%'
-    factory_class: '%cybozu_http.client.factory_class%'
-    factory_method: factory
+    factory:
+      - '@cybozu_http.factory_client'
+      - factory
     arguments:
       - cybozu_http.cybozu.config
 
   cybozu_http.kintone_api_client:
-    class:  %cybozu_http.kintone_api_client.class%
+    class:  '%cybozu_http.kintone_api_client.class%'
     arguments:
       - cybozu_http.client
 
   cybozu_http.user_api_client:
-    class:  %cybozu_http.user_api_client.class%
+    class:  '%cybozu_http.user_api_client.class%'
     arguments:
       - cybozu_http.client
