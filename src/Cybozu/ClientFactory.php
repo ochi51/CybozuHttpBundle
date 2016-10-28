@@ -15,6 +15,6 @@ class ClientFactory
      */
     public static function factory(Config $config)
     {
-        return new Client($config->toArray());
+        return new Client($config->getConfig());
     }
 }

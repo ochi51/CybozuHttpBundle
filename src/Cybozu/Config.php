@@ -17,9 +17,9 @@ class Config
     private $ts;
 
     /**
-     * @var array
+     * @var CybozuAccountInterface
      */
-    private $config;
+    private $user;
 
     /**
      * @var string
@@ -33,38 +33,50 @@ class Config
 
     /**
      * @param TokenStorageInterface $ts
-     * @param array $config
      * @param string|null $certDir
      * @param string|null $logfile
      */
-    public function __construct(TokenStorageInterface $ts, array $config = [], $certDir = null, $logfile = null)
+    public function __construct(TokenStorageInterface $ts, $certDir = null, $logfile = null)
     {
         $this->ts = $ts;
-        $this->config = $config;
         $this->certDir = $certDir;
         $this->logfile = $logfile;
-        $this->config['logfile'] = $this->logfile;
+
+        $token = $ts->getToken();
+        if ($token && $token->getUser() instanceof CybozuAccountInterface) {
+            $this->user = $token->getUser();
+        }
     }
 
     /**
      * @return array
      */
-    public function toArray()
+    public function getConfig()
     {
-        $user = $this->ts->getToken()->getUser();
-        $config = $this->config;
-
-        if ($user instanceof CybozuAccountInterface) {
-            $config = $user->getCybozuHttpConfig() + $config;
-            $config['debug']   = $user->getDebugMode();
+        if ($this->user instanceof CybozuAccountInterface) {
+            $config = $this->user->getCybozuHttpConfig();
+            $config['debug']   = $this->user->getDebugMode();
             $config['logfile'] = $this->logfile;
             // This assumes to use KnpGaufretteBundle and VichUploaderBundle.
             // Entity has only key, so can't know directory.
             if (array_key_exists('cert_file', $config)) {
                 $config['cert_file'] = $this->certDir . '/' . $config['cert_file'];
             }
+
+            return $config;
         }
 
-        return $config;
+        throw new \RuntimeException('User in token and this user done not implement CybozuAccountInterface.');
+    }
+
+    /**
+     * @param CybozuAccountInterface $user
+     * @return self
+     */
+    public function setUser(CybozuAccountInterface $user)
+    {
+        $this->user = $user;
+
+        return $this;
     }
 }

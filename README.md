@@ -20,7 +20,7 @@ Requirements
 
 - PHP >=5.5
 - Composer
-- Symfony >=2.3
+- Symfony >=3.1
 
 Installation
 ------------
@@ -44,7 +44,7 @@ Alternatively, you can specify Cybozu HTTP as a dependency in your project's exi
 ```{.json}
     {
        "require": {
-          "ochi51/cybozu-http-bundle": "0.1.*@dev"
+          "ochi51/cybozu-http-bundle": "^1.0"
        }
     }
 ```
@@ -71,30 +71,6 @@ Configuration
 
 There are two ways that configure cybozu.com account information.
 
-1. Add to `app/parameters.yml`.
-
-```{.yml}
-    # app/config.yml
-    cybozu_http:
-        config:
-            domain:         cybozu.com
-            subdomain:      changeMe
-            use_api_token:    false
-            login:          changeMe
-            password:       changeMe
-            token:          null
-            use_basic:      false
-            basic_login:    null
-            basic_password: null
-            use_client_cert: false
-            cert_file:      /path/to/cert.pem
-            cert_password:  null
-            use_cache:      true
-            cache_dir:      /path/to/cache_dir
-            cache_ttl:      0
-        debug:          false
-        logfile:        /path/to/logfile.log
-```
 
 2. User entity has it.
 
